@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>Hecho para Ti 🎁</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@400;600&family=Pacifico&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width:100vw;height:100dvh;user-select:none;-webkit-tap-highlight-color:transparent;}
+.hidden{display:none!important;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-thumb{background:rgba(255,105,180,.4);border-radius:3px;}
+
+/* ====== KEYFRAMES ====== */
+@keyframes floatUp{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:.7}90%{opacity:.3}100%{transform:translateY(-20vh) rotate(360deg);opacity:0}}
+@keyframes giftBounce{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-15px) scale(1.1)}}
+@keyframes glow{0%,100%{text-shadow:0 0 30px #ff69b4,0 0 60px rgba(255,105,180,.5)}50%{text-shadow:0 0 60px #ff69b4,0 0 110px rgba(255,105,180,.9)}}
+@keyframes blink{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes shine{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+@keyframes hb{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}
+@keyframes spk{0%,100%{opacity:0;transform:scale(0)}50%{opacity:1;transform:scale(1)}}
+@keyframes cpop{0%{transform:scale(2.2);opacity:0}60%{transform:scale(.9)}100%{transform:scale(1);opacity:1}}
+@keyframes efloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-12px) rotate(5deg)}}
+@keyframes logop{0%,100%{transform:scale(1);filter:drop-shadow(0 0 5px rgba(255,105,180,.5))}50%{transform:scale(1.15);filter:drop-shadow(0 0 18px rgba(255,105,180,.95))}}
+@keyframes mbp{0%,100%{box-shadow:0 4px 15px rgba(255,105,180,.5)}50%{box-shadow:0 4px 28px rgba(255,105,180,.95),0 0 45px rgba(255,105,180,.35)}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes pdrift{0%{transform:translateY(100vh);opacity:0}10%{opacity:.6}90%{opacity:.3}100%{transform:translateY(-10vh);opacity:0}}
+@keyframes pageIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+@keyframes cHeart{0%{opacity:1;transform:translate(-50%,-50%) scale(0)}50%{opacity:1;transform:translate(-50%,-80%) scale(1.3)}100%{opacity:0;transform:translate(-50%,-170%) scale(.8)}}
+@keyframes confFall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+@keyframes mIn{from{opacity:0;transform:scale(.88) translateY(24px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes toIn{from{opacity:0;transform:translateX(-50%) translateY(12px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes finalFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes rainbowGlow{0%{text-shadow:0 0 20px #ff69b4,0 0 40px #ff69b4}33%{text-shadow:0 0 20px #c8a2c8,0 0 40px #c8a2c8}66%{text-shadow:0 0 20px #87ceeb,0 0 40px #87ceeb}100%{text-shadow:0 0 20px #ff69b4,0 0 40px #ff69b4}}
+
+/* ====== LOCK SCREEN ====== */
+#lockScreen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:1000;overflow:hidden;background:radial-gradient(ellipse at 30% 50%,#3d1a3d,#1a0a1a 55%,#0d0515);}
+.fh-wrap{position:absolute;inset:0;pointer-events:none;}
+.fh{position:absolute;animation:floatUp linear infinite;opacity:0;}
+.lock-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;padding:20px;}
+.gift-icon{font-size:5rem;animation:giftBounce 2s ease-in-out infinite;filter:drop-shadow(0 0 22px rgba(255,105,180,.9));}
+.lock-title{font-family:'Dancing Script',cursive;font-size:clamp(2.5rem,8vw,4.5rem);color:#fff;animation:glow 3s ease-in-out infinite;}
+.lock-sub{font-size:1.05rem;color:rgba(255,182,193,.9);letter-spacing:2px;animation:blink 2.5s ease-in-out infinite;}
+.unlock-btn{display:flex;align-items:center;gap:10px;padding:16px 40px;background:linear-gradient(135deg,#ff69b4,#e91e8c);border:none;border-radius:50px;color:#fff;font-family:'Quicksand',sans-serif;font-size:1.1rem;font-weight:700;cursor:pointer;box-shadow:0 5px 25px rgba(255,105,180,.6);transition:transform .2s;position:relative;overflow:hidden;}
+.unlock-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(255,255,255,.25),transparent);transform:translateX(-100%);animation:shine 2.5s ease infinite;}
+.unlock-btn:active{transform:scale(.95);}
+.btn-heart{font-size:1.3rem;animation:hb 1s ease-in-out infinite;}
+.sp-wrap{position:absolute;inset:0;pointer-events:none;}
+.sp{position:absolute;border-radius:50%;background:#ffb6c1;animation:spk ease-in-out infinite;box-shadow:0 0 6px 2px rgba(255,182,193,.6);}
+
+/* ====== COUNTDOWN ====== */
+#countdownScreen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:999;background:radial-gradient(ellipse at center,#3d1a3d,#1a0a1a);}
+.cd-wrap{text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;}
+.cd-label{font-family:'Dancing Script',cursive;font-size:1.9rem;color:#ffb6c1;}
+.cd-num{font-family:'Pacifico',cursive;font-size:clamp(7rem,22vw,12rem);color:#fff;text-shadow:0 0 50px #ff69b4,0 0 100px rgba(255,105,180,.6);animation:cpop 1s ease-out;line-height:1;}
+.cd-hearts{font-size:2.5rem;animation:hb .8s ease-in-out infinite;}
+
+/* ====== MAIN CONTENT ====== */
+#mainContent{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;background:linear-gradient(135deg,#1a0a1a,#2d0a2d 50%,#1a0510);}
+#rainCanvas{position:absolute;inset:0;pointer-events:none;z-index:1;}
+#particles{position:absolute;inset:0;pointer-events:none;z-index:1;}
+.ptc{position:absolute;animation:pdrift linear infinite;opacity:0;}
+
+/* ====== TOP BAR ====== */
+.top-bar{position:relative;z-index:10;width:100%;display:flex;justify-content:space-between;align-items:center;padding:10px 18px;}
+.top-logo{font-size:1.8rem;animation:logop 2s ease-in-out infinite;}
+.settings-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,105,180,.3);color:#ffb6c1;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.1rem;transition:all .3s;backdrop-filter:blur(10px);}
+.settings-btn:hover{background:rgba(255,105,180,.2);transform:rotate(45deg);}
+
+/* ====== GIF — mix-blend-mode:screen elimina fondo verde/oscuro ====== */
+.gif-wrap{position:relative;z-index:5;display:flex;justify-content:center;align-items:center;height:82px;margin-bottom:2px;}
+.main-gif{max-height:82px;max-width:150px;object-fit:contain;mix-blend-mode:screen;filter:saturate(1.3) brightness(1.1);}
+.emoji-anim{font-size:3.2rem;animation:efloat 3s ease-in-out infinite;filter:drop-shadow(0 0 16px rgba(255,105,180,.8));}
+
+/* ====== MUSIC ====== */
+.music-player{position:fixed;bottom:18px;right:18px;z-index:20;}
+.music-btn{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#ff69b4,#9b59b6);border:2px solid rgba(255,255,255,.3);color:#fff;font-size:1.15rem;cursor:pointer;animation:mbp 2s ease-in-out infinite;transition:transform .2s;}
+.music-btn:hover{transform:scale(1.12);}
+.music-btn.playing{animation:spin 3s linear infinite;}
+
+/* ====== FLOATING WORD ====== */
+#floatingWord{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Dancing Script',cursive;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;pointer-events:none;z-index:2;transition:opacity .5s,transform .5s;opacity:0;white-space:nowrap;}
+
+/* ====== BOOK WRAPPER ====== */
+.book-wrap{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;width:100%;flex:1;padding:4px 10px 55px;min-height:0;}
+
+/* ====== BOOK ====== */
+.book{position:relative;width:100%;max-width:700px;flex:1;min-height:0;perspective:1400px;}
+
+/* --- COVER: preserve-3d para que NO se espeje el texto --- */
+.cover-shell{
+  position:absolute;inset:0;
+  transform-style:preserve-3d;
+  transform-origin:left center;
+  transition:transform 0.95s cubic-bezier(.645,.045,.355,1);
+  cursor:pointer;
+  z-index:10;
+}
+.cover-shell.open{transform:rotateY(-180deg);}
+
+.cover-front{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,#4a0e4a,#8b2252 50%,#4a0e4a);
+  border-radius:6px 18px 18px 6px;
+  border-left:8px solid #2d052d;
+  box-shadow:-5px 0 15px rgba(0,0,0,.5),6px 6px 30px rgba(0,0,0,.4),0 0 60px rgba(255,105,180,.2);
+  display:flex;align-items:center;justify-content:center;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+.cover-back{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,#2d052d,#4a0e4a);
+  border-radius:6px 18px 18px 6px;
+  border-left:8px solid #1a031a;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  transform:rotateY(180deg);
+}
+.cover-inner{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:24px;}
+.cover-hearts{font-size:3.2rem;animation:hb 1.5s ease-in-out infinite;filter:drop-shadow(0 0 12px rgba(255,105,180,.9));}
+.cover-title{font-family:'Dancing Script',cursive;font-size:clamp(1.9rem,5vw,3rem);color:#fff;text-shadow:0 0 25px rgba(255,182,193,.9);}
+.cover-sub{color:rgba(255,182,193,.88);font-size:1rem;letter-spacing:1.5px;animation:blink 2s ease-in-out infinite;}
+.cover-deco{font-size:2.2rem;animation:efloat 3s ease-in-out infinite;}
+
+/* ====== PAGES CONTAINER ====== */
+.pages-cont{
+  position:absolute;inset:0;
+  border-radius:18px;
+  background:linear-gradient(135deg,#fff5f7,#ffe4ef);
+  z-index:1;
+  overflow:hidden;
+}
+
+/* ====== BACK COVER — z-index:2 para estar SOBRE pages-cont ====== */
+.back-cover{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,#3d0a3d,#6b1a6b 50%,#3d0a3d);
+  border-radius:18px 6px 6px 18px;
+  border-right:8px solid #2d052d;
+  display:flex;align-items:center;justify-content:center;
+  z-index:2;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .55s ease;
+}
+.back-cover.visible{opacity:1;pointer-events:all;}
+.back-cover-inner{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;padding:28px;}
+/* GIF final — mismo blend para quitar fondo */
+.final-gif{
+  width:250px;height:250px;object-fit:contain;
+  mix-blend-mode:screen;
+  filter:saturate(1.4) brightness(1.15);
+  animation:finalFloat 3s ease-in-out infinite;
+}
+.final-title{font-family:'Dancing Script',cursive;font-size:clamp(2rem,6vw,3rem);color:#fff;animation:rainbowGlow 4s ease-in-out infinite;}
+.final-sub{color:rgba(255,182,193,.88);font-size:.98rem;line-height:1.65;}
+.restart-btn{margin-top:4px;padding:11px 30px;background:linear-gradient(135deg,#ff69b4,#e91e8c);border:none;border-radius:28px;color:#fff;font-family:'Quicksand',sans-serif;font-size:.97rem;font-weight:700;cursor:pointer;box-shadow:0 4px 18px rgba(255,105,180,.5);transition:all .3s;}
+.restart-btn:hover{transform:translateY(-2px);}
+
+/* ====== SPREADS ====== */
+.spread{position:absolute;inset:0;display:flex;animation:pageIn .45s ease-out;}
+.spread.gone{display:none;}
+.p-left,.p-right{flex:1;display:flex;align-items:center;justify-content:center;padding:14px 12px;position:relative;}
+.p-left{border-right:2px dashed rgba(255,105,180,.22);}
+
+/* ====== PHOTOS ====== */
+.photo-frame{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;}
+.photo{width:100%;max-width:255px;height:355px;object-fit:cover;border-radius:12px;border:3px solid #fff;box-shadow:0 4px 22px rgba(255,105,180,.28),0 2px 8px rgba(0,0,0,.13);transition:transform .3s;display:block;background:#f8d7e3;}
+.photo:hover{transform:scale(1.03) rotate(1deg);}
+.photo-cap{font-size:.78rem;color:#e91e8c;font-style:italic;text-align:center;font-weight:600;}
+
+/* ====== TEXT PAGES ====== */
+.text-page{flex-direction:column;align-items:flex-start;gap:10px;}
+.p-num{font-family:'Pacifico',cursive;font-size:2.5rem;color:rgba(255,105,180,.1);position:absolute;top:10px;right:14px;line-height:1;}
+.p-head{font-family:'Dancing Script',cursive;font-size:clamp(1.35rem,4vw,1.95rem);color:#c0185a;line-height:1.2;}
+.p-text{font-size:clamp(.8rem,2.3vw,.93rem);color:#5a3a5a;line-height:1.8;font-weight:500;}
+.p-deco{font-size:1.7rem;align-self:flex-end;margin-top:auto;animation:efloat 4s ease-in-out infinite;}
+
+/* ====== NAV ====== */
+.nav-arrows{display:flex;align-items:center;gap:15px;margin-top:9px;}
+.nav-btn{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#ff69b4,#e91e8c);border:none;color:#fff;font-size:1.4rem;cursor:pointer;box-shadow:0 3px 14px rgba(255,105,180,.45);transition:all .25s;display:flex;align-items:center;justify-content:center;}
+.nav-btn:hover{transform:scale(1.12);}
+.nav-btn:active{transform:scale(.93);}
+.nav-btn:disabled{opacity:.25;cursor:not-allowed;transform:none;}
+.page-ind{color:rgba(255,182,193,.88);font-size:.9rem;font-weight:700;min-width:65px;text-align:center;}
+
+/* ====== HEART CLICK ====== */
+#heartLayer{position:fixed;inset:0;pointer-events:none;z-index:998;}
+.cheart{position:absolute;font-size:1.6rem;pointer-events:none;animation:cHeart 1s ease-out forwards;transform:translate(-50%,-50%);}
+
+/* ====== SETTINGS ====== */
+#settingsPanel{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;}
+.s-overlay{position:absolute;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(5px);}
+.s-modal{position:relative;z-index:1;background:linear-gradient(135deg,#2d0a2d,#1a0a1a);border:1px solid rgba(255,105,180,.35);border-radius:20px;width:92%;max-width:460px;max-height:87dvh;overflow-y:auto;box-shadow:0 24px 70px rgba(0,0,0,.55);animation:mIn .3s ease-out;}
+.s-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid rgba(255,105,180,.2);}
+.s-header h2{font-family:'Dancing Script',cursive;font-size:1.55rem;color:#ffb6c1;}
+.close-s{background:rgba(255,105,180,.15);border:1px solid rgba(255,105,180,.3);color:#ffb6c1;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:.9rem;transition:all .2s;}
+.close-s:hover{background:rgba(255,105,180,.3);transform:rotate(90deg);}
+.s-body{padding:18px 22px;display:flex;flex-direction:column;gap:18px;}
+.s-sec{display:flex;flex-direction:column;gap:9px;}
+.s-sec h3{font-size:.95rem;font-weight:700;color:#ffb6c1;padding-bottom:5px;border-bottom:1px dashed rgba(255,105,180,.2);}
+.s-sec label{font-size:.82rem;color:rgba(255,182,193,.8);}
+.s-select,.s-input,.s-textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,105,180,.3);border-radius:10px;color:#fff;padding:9px 13px;font-family:'Quicksand',sans-serif;font-size:.88rem;width:100%;transition:border-color .2s;}
+.s-select:focus,.s-input:focus,.s-textarea:focus{outline:none;border-color:#ff69b4;}
+.s-textarea{min-height:72px;resize:vertical;}
+.s-color{width:56px;height:34px;border-radius:8px;border:2px solid rgba(255,105,180,.3);cursor:pointer;background:none;padding:2px;}
+.color-pre{display:flex;gap:7px;flex-wrap:wrap;}
+.cpre{padding:5px 12px;border-radius:20px;border:2px solid rgba(255,255,255,.3);color:#fff;font-size:.78rem;font-weight:700;cursor:pointer;transition:all .2s;}
+.cpre:hover{transform:scale(1.07);border-color:#fff;}
+.tog-row{display:flex;align-items:center;gap:10px;}
+.tog{position:relative;display:inline-block;width:50px;height:26px;}
+.tog input{opacity:0;width:0;height:0;}
+.tog-sl{position:absolute;cursor:pointer;inset:0;background:rgba(255,255,255,.1);border-radius:26px;transition:.3s;}
+.tog-sl::before{content:'';position:absolute;width:20px;height:20px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.3s;}
+.tog input:checked+.tog-sl{background:#ff69b4;}
+.tog input:checked+.tog-sl::before{transform:translateX(24px);}
+.music-note{background:rgba(255,105,180,.06);border:1px dashed rgba(255,105,180,.22);border-radius:12px;padding:13px!important;}
+.music-note p{color:rgba(255,182,193,.72);font-size:.82rem;line-height:1.65;}
+.music-note code{background:rgba(255,105,180,.22);padding:1px 6px;border-radius:4px;font-family:monospace;color:#ffb6c1;}
+.apply-btn{padding:13px;background:linear-gradient(135deg,#ff69b4,#e91e8c);border:none;border-radius:12px;color:#fff;font-family:'Quicksand',sans-serif;font-size:.98rem;font-weight:700;cursor:pointer;box-shadow:0 4px 18px rgba(255,105,180,.45);transition:all .3s;}
+.apply-btn:hover{transform:translateY(-2px);}
+.toast{position:fixed;bottom:78px;left:50%;transform:translateX(-50%);background:rgba(255,105,180,.92);color:#fff;padding:11px 24px;border-radius:30px;font-weight:700;font-size:.88rem;z-index:9999;backdrop-filter:blur(12px);white-space:nowrap;animation:toIn .3s ease-out;}
+
+@media(max-width:480px){.photo{height:155px;}.p-left,.p-right{padding:8px 7px;}}
+@media(max-height:680px){.gif-wrap{height:56px;}.main-gif{max-height:56px;}.emoji-anim{font-size:2.2rem;}.photo{height:142px;}}
+</style>
+</head>
+<body>
+
+<!-- ===== LOCK SCREEN ===== -->
+<div id="lockScreen">
+  <div class="fh-wrap" id="fhWrap"></div>
+  <div class="lock-content">
+    <div class="gift-icon">🎁</div>
+    <h1 class="lock-title">Hecho para Ti</h1>
+    <p class="lock-sub">Hay algo especial esperándote...</p>
+    <button class="unlock-btn" id="unlockBtn">
+      <span class="btn-heart">💝</span>
+      <span>Toca para abrir</span>
+    </button>
+  </div>
+  <div class="sp-wrap" id="spWrap"></div>
+</div>
+
+<!-- ===== COUNTDOWN ===== -->
+<div id="countdownScreen" class="hidden">
+  <div class="cd-wrap">
+    <p class="cd-label">Abriendo tu regalo en...</p>
+    <div class="cd-num" id="cdNum">3</div>
+    <div class="cd-hearts">💕</div>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div id="mainContent" class="hidden">
+  <canvas id="rainCanvas"></canvas>
+  <div id="particles"></div>
+
+  <div class="top-bar">
+    <div class="top-logo">💖</div>
+    <button class="settings-btn" id="settingsBtn">⚙</button>
+  </div>
+
+  <!-- GIF principal — mix-blend-mode:screen quita el fondo verde -->
+  <div class="gif-wrap">
+    <img id="mainGif"
+         src="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/cumple_nobg.gif"
+         alt="animación"
+         class="main-gif"/>
+    <div class="emoji-anim hidden" id="emojiAnim">🌸</div>
+  </div>
+
+  <div id="floatingWord"></div>
+
+  <div class="music-player">
+    <button class="music-btn" id="musicBtn">▶</button>
+  </div>
+
+  <!-- BOOK -->
+  <div class="book-wrap">
+    <div class="book" id="book">
+
+      <!-- BACK COVER — visible al llegar al final -->
+      <div class="back-cover" id="backCover">
+        <div class="back-cover-inner">
+          <img id="finalGif"
+               src="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/cumple_nobg.gif"
+               alt=""
+               class="final-gif"/>
+          <div class="final-title">¡Gracias por todo! 💖</div>
+          <p class="final-sub">Este regalo fue hecho con todo el amor<br>del mundo para ti 🌸✨</p>
+          <button class="restart-btn" id="restartBtn">Volver al inicio 🔄</button>
+        </div>
+      </div>
+
+      <!-- PAGES -->
+      <div class="pages-cont" id="pagesCont">
+
+        <!-- SPREAD 0 -->
+        <div class="spread gone" id="sp0">
+          <div class="p-left">
+            <div class="photo-frame">
+              <!-- ✏️ FOTO 1 -->
+              <img src="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/Foto%201.jpg"
+                   alt="Foto 1" class="photo"
+                   onerror="this.src='https://placehold.co/255x195/ffb6c1/fff?text=Foto+1'"/>
+              <div class="photo-cap">Mi persona favorita ✨</div>
+            </div>
+          </div>
+          <div class="p-right text-page">
+            <div class="p-num">01</div>
+            <h3 class="p-head">Querida...</h3>
+            <!-- ✏️ TEXTO 1 -->
+            <p class="p-text">Espero que este día se lo mejor para ti. Gracias por ser tan especial y llenar mi vida de alegría y amor Te quiero mucho ♥️.</p>
+            <div class="p-deco">🌸</div>
+          </div>
+        </div>
+
+        <!-- SPREAD 1 -->
+        <div class="spread gone" id="sp1">
+          <div class="p-left text-page">
+            <div class="p-num">02</div>
+            <h3 class="p-head">Recuerdos</h3>
+            <!-- ✏️ TEXTO 2 -->
+            <p class="p-text">Hay momentos que quedan grabados para siempre en la memoria del corazón. Gracias por existir y por estar aquí.</p>
+            <div class="p-deco">💫</div>
+          </div>
+          <div class="p-right">
+            <div class="photo-frame">
+              <!-- ✏️ FOTO 2 -->
+              <img src="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/Foto%202.jpg"
+                   alt="Foto 2" class="photo"
+                   onerror="this.src='https://placehold.co/255x195/c8a2c8/fff?text=Foto+2'"/>
+              <div class="photo-cap">Siempre en mi cabezota 💜</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SPREAD 2 -->
+        <div class="spread gone" id="sp2">
+          <div class="p-left">
+            <div class="photo-frame">
+              <!-- ✏️ FOTO 3 -->
+              <img src="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/Foto%203.jpg"
+                   alt="Foto 3" class="photo"
+                   onerror="this.src='https://placehold.co/255x195/87ceeb/fff?text=Foto+3'"/>
+              <div class="photo-cap">Los mejores momentos son contigo 🌟</div>
+            </div>
+          </div>
+          <div class="p-right text-page">
+            <div class="p-num">03</div>
+            <h3 class="p-head">Que esto dure lo suficiente</h3>
+            <!-- ✏️ TEXTO 3 -->
+            <p class="p-text">El tiempo pasa, pero los recuerdos contigo permanecen para siempre. Eres una parte muy importante de mi vida.</p>
+            <div class="p-deco">🌺</div>
+          </div>
+        </div>
+
+        <!-- SPREAD 3 -->
+        <div class="spread gone" id="sp3">
+          <div class="p-left text-page">
+            <div class="p-num">04</div>
+            <h3 class="p-head">Con todo mi amor</h3>
+            <!-- ✏️ TEXTO 4 -->
+            <p class="p-text">Este pequeño regalo es solo una muestra de lo mucho que significas para mí. Espero que este momento te haga sonreír 💝</p>
+            <div class="p-deco">💌</div>
+          </div>
+          <div class="p-right">
+            <div class="photo-frame">
+              <!-- ✏️ FOTO 4 -->
+              <img src="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/Foto%204.jpg"
+                   alt="Foto 4" class="photo"
+                   onerror="this.src='https://placehold.co/255x195/98fb98/fff?text=Foto+4'"/>
+              <div class="photo-cap">Con amor, siempre 💚</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /pages-cont -->
+
+      <!-- COVER SHELL — preserve-3d corrige el espejado -->
+      <div class="cover-shell" id="coverShell">
+        <div class="cover-front">
+          <div class="cover-inner">
+            <div class="cover-hearts">💝</div>
+            <h2 class="cover-title">Para ti, con amor</h2>
+            <p class="cover-sub">Toca para abrir 💌</p>
+            <div class="cover-deco">✨</div>
+          </div>
+        </div>
+        <div class="cover-back"></div>
+      </div>
+
+    </div><!-- /book -->
+
+    <div class="nav-arrows">
+      <button class="nav-btn" id="prevBtn">&#8592;</button>
+      <div class="page-ind" id="pageInd">Portada</div>
+      <button class="nav-btn" id="nextBtn">&#8594;</button>
+    </div>
+  </div><!-- /book-wrap -->
+
+  <div id="heartLayer"></div>
+</div><!-- /mainContent -->
+
+<!-- ===== SETTINGS ===== -->
+<div id="settingsPanel" class="hidden">
+  <div class="s-overlay" id="sOverlay"></div>
+  <div class="s-modal">
+    <div class="s-header">
+      <h2>⚙️ Configuración</h2>
+      <button class="close-s" id="closeS">✖</button>
+    </div>
+    <div class="s-body">
+      <div class="s-sec">
+        <h3>⏰ Cuenta Regresiva</h3>
+        <select id="cdSel" class="s-select">
+          <option value="3">3 segundos</option>
+          <option value="5">5 segundos</option>
+          <option value="10">10 segundos</option>
+        </select>
+      </div>
+      <div class="s-sec">
+        <h3>🌧️ Lluvia de Texto</h3>
+        <label>Texto:</label>
+        <input type="text" id="rainTxt" class="s-input" value="Te quiero"/>
+        <label>Color 1:</label>
+        <div class="color-pre">
+          <button class="cpre" data-c="#ff69b4" style="background:#ff69b4">Rosa</button>
+          <button class="cpre" data-c="#87ceeb" style="background:#87ceeb">Azul</button>
+          <button class="cpre" data-c="#c8a2c8" style="background:#c8a2c8">Morado</button>
+        </div>
+        <input type="color" id="rainC1" class="s-color" value="#ff69b4"/>
+        <label>Color 2:</label>
+        <input type="color" id="rainC2" class="s-color" value="#ffb6c1"/>
+      </div>
+      <div class="s-sec">
+        <h3>✨ Palabras Animadas</h3>
+        <label>Palabras (separadas por |):</label>
+        <textarea id="mainWords" class="s-textarea">Te amo|Eres especial|Siempre contigo|Mi amor|💖</textarea>
+        <label>Color:</label>
+        <input type="color" id="wordColor" class="s-color" value="#ff69b4"/>
+      </div>
+      <div class="s-sec">
+        <h3>🎁 URL de GIF / Imagen</h3>
+        <label>URL (vacío = emoji 🌸):</label>
+        <input type="text" id="gifUrlIn" class="s-input" value="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/cumple_nobg.gif"/>
+      </div>
+      <div class="s-sec">
+        <h3>💖 Corazones al tocar</h3>
+        <div class="tog-row">
+          <label class="tog"><input type="checkbox" id="heartTog" checked/><span class="tog-sl"></span></label>
+          <span style="color:rgba(255,182,193,.8);font-size:.85rem;">Activado</span>
+        </div>
+      </div>
+      <div class="s-sec music-note">
+        <h3>🎵 Música</h3>
+        <p>Edita la variable <code>MUSIC_SRC</code> al inicio del script. Ejemplo: <code>'cancion.mp3'</code></p>
+      </div>
+      <button class="apply-btn" id="applyBtn">🎉 Aplicar</button>
+    </div>
+  </div>
+</div>
+
+<audio id="bgMusic" loop></audio>
+
+<script>
+// ============================================================
+// ✏️  CONFIGURACIÓN PRINCIPAL — edita aquí
+// ============================================================
+const CFG = {
+  MUSIC_SRC : 'https://raw.githubusercontent.com/AngHHdz/guitarra/main/Valiente%20-%20koko.mp3',   // ← ruta a tu MP3, ej: 'musica.mp3'
+  cdTime    : 3,
+  rainText  : 'Te quiero',
+  rainC1    : '#ff69b4',
+  rainC2    : '#ffb6c1',
+  words     : ['Te amo','Eres especial','Siempre contigo','Mi amor','💖'],
+  wordColor : '#ff69b4',
+  gifUrl    : 'https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/cumple_nobg.gif',
+  heartClick: true,
+};
+// ============================================================
+
+const G = id => document.getElementById(id);
+const TOTAL = 4;
+
+let cur = -1;
+let musicOn = false;
+let rainAF = null;
+let wordTm = null;
+let wordIdx = 0;
+let drops = [];
+
+/* ---- LOCK SCREEN ---- */
+(function buildLock(){
+  const em = ['💕','💖','💗','💝','🌸','✨','💫','🌺'];
+  const fh = G('fhWrap');
+  for(let i = 0; i < 24; i++){
+    const d = document.createElement('div');
+    d.className = 'fh';
+    d.textContent = em[i % em.length];
+    const dr = 6 + Math.random() * 10;
+    d.style.cssText = `left:${Math.random()*100}%;font-size:${1+Math.random()*1.5}rem;animation-duration:${dr}s;animation-delay:-${Math.random()*dr}s;`;
+    fh.appendChild(d);
+  }
+  const sp = G('spWrap');
+  for(let i = 0; i < 32; i++){
+    const s = document.createElement('div');
+    s.className = 'sp';
+    const sz = 2 + Math.random() * 5;
+    const dr2 = 1.5 + Math.random() * 3;
+    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${sz}px;height:${sz}px;animation-duration:${dr2}s;animation-delay:-${Math.random()*dr2}s;`;
+    sp.appendChild(s);
+  }
+})();
+
+G('unlockBtn').addEventListener('click', () => {
+
+  const bm = G('bgMusic');
+
+  if (CFG.MUSIC_SRC) {
+      bm.src = CFG.MUSIC_SRC;
+      bm.volume = 0.6;
+      bm.play().then(() => {
+          musicOn = true;
+          G('musicBtn').textContent = '⏸';
+          G('musicBtn').classList.add('playing');
+      });
+  }
+
+  const l = G('lockScreen');
+  l.style.transition = 'opacity .85s, transform .85s';
+  l.style.opacity = '0';
+  l.style.transform = 'scale(1.06)';
+  setTimeout(() => {
+      l.classList.add('hidden');
+      startCountdown();
+  }, 870);
+});
+
+/* ---- COUNTDOWN ---- */
+function startCountdown(){
+  const cs = G('countdownScreen');
+  cs.classList.remove('hidden');
+  const cn = G('cdNum');
+  let n = CFG.cdTime;
+  cn.textContent = n;
+  const iv = setInterval(() => {
+    n--;
+    if(n <= 0){
+      clearInterval(iv);
+      cs.style.transition = 'opacity .5s';
+      cs.style.opacity = '0';
+      setTimeout(() => { cs.classList.add('hidden'); showMain(); }, 530);
+    } else {
+      cn.textContent = n;
+      cn.style.animation = 'none';
+      void cn.offsetWidth;
+      cn.style.animation = 'cpop 1s ease-out';
+    }
+  }, 1000);
+}
+
+/* ---- MAIN ---- */
+function showMain(){
+  const m = G('mainContent');
+  m.classList.remove('hidden');
+  m.style.opacity = '0';
+  m.style.transition = 'opacity 1s';
+  requestAnimationFrame(() => m.style.opacity = '1');
+  initRain();
+  initParticles();
+  startWords();
+  applyGif();
+  updateNav();
+}
+
+/* ---- RAIN CANVAS ---- */
+function initRain(){
+  if(rainAF){ cancelAnimationFrame(rainAF); rainAF = null; }
+  const cv = G('rainCanvas'), ctx = cv.getContext('2d');
+  const resize = () => { cv.width = window.innerWidth; cv.height = window.innerHeight; };
+  resize();
+  window.addEventListener('resize', resize);
+  drops = [];
+  const n = Math.floor(window.innerWidth / 24) + 10;
+  for(let i = 0; i < n; i++) drops.push({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    sp: .7 + Math.random() * 1.9,
+    op: .12 + Math.random() * .55,
+    fs: 10 + Math.random() * 8,
+    c: Math.random() > .5 ? CFG.rainC1 : CFG.rainC2
+  });
+  (function loop(){
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    drops.forEach(d => {
+      ctx.save();
+      ctx.globalAlpha = d.op;
+      ctx.fillStyle = d.c;
+      ctx.font = `${d.fs}px 'Dancing Script', cursive`;
+      ctx.fillText(CFG.rainText, d.x, d.y);
+      ctx.restore();
+      d.y += d.sp;
+      if(d.y > cv.height + 30){ d.y = -30; d.x = Math.random() * cv.width; }
+    });
+    rainAF = requestAnimationFrame(loop);
+  })();
+}
+
+/* ---- PARTICLES ---- */
+function initParticles(){
+  const c = G('particles');
+  ['✨','🌸','💫','⭐','🌺','💕','🎀'].forEach(em => {
+    const p = document.createElement('div');
+    p.className = 'ptc';
+    p.textContent = em;
+    const dr = 8 + Math.random() * 16;
+    p.style.cssText = `left:${Math.random()*100}%;font-size:${.8+Math.random()*1.3}rem;animation-duration:${dr}s;animation-delay:-${Math.random()*dr}s;`;
+    c.appendChild(p);
+  });
+}
+
+/* ---- WORDS ---- */
+function startWords(){
+  clearTimeout(wordTm);
+  const el = G('floatingWord');
+  el.style.color = CFG.wordColor;
+  el.style.textShadow = `0 0 22px ${CFG.wordColor}90, 0 0 45px ${CFG.wordColor}50`;
+  function show(){
+    el.textContent = CFG.words[wordIdx];
+    el.style.opacity = '1';
+    el.style.transform = 'translate(-50%,-50%) scale(1)';
+    wordTm = setTimeout(() => {
+      el.style.opacity = '0';
+      el.style.transform = 'translate(-50%,-60%) scale(.88)';
+      wordTm = setTimeout(() => { wordIdx = (wordIdx + 1) % CFG.words.length; show(); }, 620);
+    }, 2600);
+  }
+  show();
+}
+
+/* ---- GIF ---- */
+function applyGif(){
+  const mg = G('mainGif'), ea = G('emojiAnim'), fg = G('finalGif');
+  if(CFG.gifUrl){
+    mg.src = CFG.gifUrl;
+    mg.classList.remove('hidden');
+    ea.classList.add('hidden');
+    if(fg){ fg.src = CFG.gifUrl; fg.style.display = ''; }
+  } else {
+    mg.classList.add('hidden');
+    ea.classList.remove('hidden');
+    if(fg) fg.style.display = 'none';
+  }
+}
+
+/* ---- BOOK NAVIGATION ---- */
+function showSpread(idx){
+  // Ocultar back cover
+  G('backCover').classList.remove('visible');
+  // Ocultar todos los spreads
+  for(let i = 0; i < TOTAL; i++) G('sp'+i).classList.add('gone');
+  // Mostrar el correcto
+  if(idx >= 0 && idx < TOTAL){
+    const sp = G('sp'+idx);
+    sp.classList.remove('gone');
+    sp.style.animation = 'none';
+    void sp.offsetWidth;
+    sp.style.animation = 'pageIn .45s ease-out';
+  }
+}
+
+function showFinal(){
+  for(let i = 0; i < TOTAL; i++) G('sp'+i).classList.add('gone');
+  G('backCover').classList.add('visible');
+  launchConfetti();
+}
+
+function updateNav(){
+  const prev = G('prevBtn'), next = G('nextBtn'), ind = G('pageInd');
+  if(cur === -1){
+    ind.textContent = 'Portada';
+    prev.disabled = true;
+    next.disabled = false;
+  } else if(cur >= 0 && cur < TOTAL){
+    ind.textContent = `${cur + 1} / ${TOTAL}`;
+    prev.disabled = false;
+    next.disabled = false;
+  } else {
+    ind.textContent = '¡Fin! 🎉';
+    prev.disabled = false;
+    next.disabled = true;
+  }
+}
+
+function openBook(){
+  G('coverShell').classList.add('open');
+  cur = 0;
+  showSpread(0);
+  updateNav();
+}
+
+// Click en portada
+G('coverShell').addEventListener('click', () => { if(cur === -1) openBook(); });
+
+// Botón siguiente →
+G('nextBtn').addEventListener('click', () => {
+  if(cur === -1){ openBook(); return; }
+  if(cur < TOTAL){
+    cur++;
+    if(cur < TOTAL) showSpread(cur);
+    else showFinal();
+    updateNav();
+  }
+});
+
+// Botón anterior ←
+G('prevBtn').addEventListener('click', () => {
+  if(cur <= 0){
+    // Volver a portada
+    G('coverShell').classList.remove('open');
+    for(let i = 0; i < TOTAL; i++) G('sp'+i).classList.add('gone');
+    G('backCover').classList.remove('visible');
+    cur = -1;
+    updateNav();
+    return;
+  }
+  cur--;
+  showSpread(cur);
+  updateNav();
+});
+
+// Botón reiniciar
+G('restartBtn').addEventListener('click', () => {
+  G('coverShell').classList.remove('open');
+  for(let i = 0; i < TOTAL; i++) G('sp'+i).classList.add('gone');
+  G('backCover').classList.remove('visible');
+  cur = -1;
+  updateNav();
+});
+
+/* ---- CONFETTI ---- */
+function launchConfetti(){
+  const em = ['💖','🌸','✨','💫','🎉','💝','🌺','⭐','🎀','💕'];
+  for(let i = 0; i < 45; i++){
+    setTimeout(() => {
+      const e = document.createElement('div');
+      e.style.cssText = `position:fixed;left:${Math.random()*100}%;top:-50px;font-size:${1+Math.random()*1.8}rem;pointer-events:none;z-index:9997;animation:confFall ${2+Math.random()*3.5}s ease forwards;`;
+      e.textContent = em[Math.floor(Math.random() * em.length)];
+      document.body.appendChild(e);
+      setTimeout(() => e.remove(), 7000);
+    }, i * 75);
+  }
+}
+
+/* ---- HEART CLICK ---- */
+const HEART_EM = ['💖','💗','💕','💝','❤️','🌸','✨','🌺'];
+const SKIP = ['.s-modal','.unlock-btn','.nav-btn','.settings-btn','.music-btn','.restart-btn','.apply-btn','.close-s','.cover-shell'];
+document.addEventListener('click', e => {
+  if(!CFG.heartClick) return;
+  if(SKIP.some(s => e.target.closest(s))) return;
+  const el = document.createElement('div');
+  el.className = 'cheart';
+  el.textContent = HEART_EM[Math.floor(Math.random() * HEART_EM.length)];
+  el.style.left = e.clientX + 'px';
+  el.style.top = e.clientY + 'px';
+  G('heartLayer').appendChild(el);
+  setTimeout(() => el.remove(), 1100);
+});
+
+/* ---- MUSIC ---- */
+G('musicBtn').addEventListener('click', () => {
+  const bm = G('bgMusic');
+  if(!bm.src || bm.src === location.href){
+    toast('🎵 Agrega tu música editando MUSIC_SRC en el script');
+    return;
+  }
+  if(musicOn){
+    bm.pause(); musicOn = false;
+    G('musicBtn').textContent = '▶';
+    G('musicBtn').classList.remove('playing');
+  } else {
+    bm.play().catch(() => toast('⚠️ No se pudo reproducir'));
+    musicOn = true;
+    G('musicBtn').textContent = '⏸';
+    G('musicBtn').classList.add('playing');
+  }
+});
+
+/* ---- SETTINGS ---- */
+G('settingsBtn').addEventListener('click', () => { loadUI(); G('settingsPanel').classList.remove('hidden'); });
+G('closeS').addEventListener('click', () => G('settingsPanel').classList.add('hidden'));
+G('sOverlay').addEventListener('click', () => G('settingsPanel').classList.add('hidden'));
+document.querySelectorAll('.cpre').forEach(b => b.addEventListener('click', () => G('rainC1').value = b.dataset.c));
+
+function loadUI(){
+  G('cdSel').value = CFG.cdTime;
+  G('rainTxt').value = CFG.rainText;
+  G('rainC1').value = CFG.rainC1;
+  G('rainC2').value = CFG.rainC2;
+  G('mainWords').value = CFG.words.join('|');
+  G('wordColor').value = CFG.wordColor;
+  G('gifUrlIn').value = CFG.gifUrl;
+  G('heartTog').checked = CFG.heartClick;
+}
+
+G('applyBtn').addEventListener('click', () => {
+  CFG.cdTime    = parseInt(G('cdSel').value) || 3;
+  CFG.rainText  = G('rainTxt').value || 'Te quiero';
+  CFG.rainC1    = G('rainC1').value;
+  CFG.rainC2    = G('rainC2').value;
+  CFG.words     = G('mainWords').value.split('|').map(s => s.trim()).filter(Boolean);
+  CFG.wordColor = G('wordColor').value;
+  CFG.gifUrl    = G('gifUrlIn').value.trim();
+  CFG.heartClick = G('heartTog').checked;
+  initRain(); applyGif(); wordIdx = 0; startWords();
+  G('settingsPanel').classList.add('hidden');
+  toast('✅ ¡Configuración aplicada!');
+});
+
+/* ---- TOAST ---- */
+function toast(msg){
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => {
+    t.style.transition = 'opacity .3s';
+    t.style.opacity = '0';
+    setTimeout(() => t.remove(), 320);
+  }, 3200);
+}
+</script>
+</body>
+</html>
