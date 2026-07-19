@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+
+<link rel="dns-prefetch" href="//raw.githubusercontent.com">
+
+<meta
+name="viewport"
+content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<meta name="theme-color" content="#1a0a1a">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 <title>Hecho para Ti 🎁</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@400;600&family=Pacifico&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width:100vw;height:100dvh;user-select:none;-webkit-tap-highlight-color:transparent;}
+body{
+font-family:'Quicksand',sans-serif;
+background:#1a0a1a;
+overflow:hidden;
+width:100%;
+min-height:100vh;
+height:100vh;
+height:100dvh;
+user-select:none;
+-webkit-user-select:none;
+-webkit-tap-highlight-color:transparent;
+-webkit-overflow-scrolling:touch;
+overscroll-behavior:none;
+touch-action:manipulation;
+text-size-adjust:100%;
+-webkit-text-size-adjust:100%;
+}
 .hidden{display:none!important;}
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-thumb{background:rgba(255,105,180,.4);border-radius:3px;}
@@ -70,7 +103,17 @@ body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width
 
 /* ====== GIF — mix-blend-mode:screen elimina fondo verde/oscuro ====== */
 .gif-wrap{position:relative;z-index:5;display:flex;justify-content:center;align-items:center;height:82px;margin-bottom:2px;}
-.main-gif{max-height:82px;max-width:150px;object-fit:contain;mix-blend-mode:screen;filter:saturate(1.3) brightness(1.1);}
+.main-gif{
+max-height:82px;
+max-width:150px;
+width:auto;
+height:auto;
+object-fit:contain;
+mix-blend-mode:screen;
+filter:saturate(1.3) brightness(1.1);
+transform:translateZ(0);
+will-change:transform;
+}
 .emoji-anim{font-size:3.2rem;animation:efloat 3s ease-in-out infinite;filter:drop-shadow(0 0 16px rgba(255,105,180,.8));}
 
 /* ====== MUSIC ====== */
@@ -83,10 +126,32 @@ body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width
 #floatingWord{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Dancing Script',cursive;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;pointer-events:none;z-index:2;transition:opacity .5s,transform .5s;opacity:0;white-space:nowrap;}
 
 /* ====== BOOK WRAPPER ====== */
-.book-wrap{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;width:100%;flex:1;padding:4px 10px 55px;min-height:0;}
+.book-wrap{
+position:relative;
+z-index:10;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+width:100%;
+flex:1;
+padding:6px 8px 60px;
+min-height:0;
+overflow:hidden;
+}
 
 /* ====== BOOK ====== */
-.book{position:relative;width:100%;max-width:700px;flex:1;min-height:0;perspective:1400px;}
+.book{
+position:relative;
+width:min(95vw,700px);
+height:min(76vh,820px);
+max-width:700px;
+max-height:820px;
+flex:1;
+min-height:0;
+perspective:1400px;
+margin:auto;
+}
 
 /* --- COVER: preserve-3d para que NO se espeje el texto --- */
 .cover-shell{
@@ -166,8 +231,33 @@ body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width
 .p-left{border-right:2px dashed rgba(255,105,180,.22);}
 
 /* ====== PHOTOS ====== */
-.photo-frame{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;}
-.photo{width:100%;max-width:255px;height:355px;object-fit:cover;border-radius:12px;border:3px solid #fff;box-shadow:0 4px 22px rgba(255,105,180,.28),0 2px 8px rgba(0,0,0,.13);transition:transform .3s;display:block;background:#f8d7e3;}
+.photo-frame{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:8px;
+width:100%;
+height:100%;
+}
+.photo{
+display:block;
+width:100%;
+max-width:255px;
+max-height:355px;
+aspect-ratio:3/4;
+height:auto;
+object-fit:contain;
+object-position:center;
+border-radius:12px;
+border:3px solid #fff;
+box-shadow:0 4px 22px rgba(255,105,180,.28),0 2px 8px rgba(0,0,0,.13);
+transition:transform .3s;
+background:#f8d7e3;
+transform:translateZ(0);
+will-change:transform;
+}
+
 .photo:hover{transform:scale(1.03) rotate(1deg);}
 .photo-cap{font-size:.78rem;color:#e91e8c;font-style:italic;text-align:center;font-weight:600;}
 
@@ -223,8 +313,75 @@ body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width
 .apply-btn:hover{transform:translateY(-2px);}
 .toast{position:fixed;bottom:78px;left:50%;transform:translateX(-50%);background:rgba(255,105,180,.92);color:#fff;padding:11px 24px;border-radius:30px;font-weight:700;font-size:.88rem;z-index:9999;backdrop-filter:blur(12px);white-space:nowrap;animation:toIn .3s ease-out;}
 
-@media(max-width:480px){.photo{height:155px;}.p-left,.p-right{padding:8px 7px;}}
-@media(max-height:680px){.gif-wrap{height:56px;}.main-gif{max-height:56px;}.emoji-anim{font-size:2.2rem;}.photo{height:142px;}}
+@media(max-width:480px){
+
+.book{
+
+width:96vw;
+
+height:72vh;
+
+}
+
+.photo{
+
+max-width:180px;
+
+max-height:250px;
+
+height:auto;
+
+object-fit:contain;
+
+}
+
+.p-left,
+.p-right{
+
+padding:8px 6px;
+
+}
+
+}
+@media(max-height:680px){
+
+.gif-wrap{
+
+height:56px;
+
+}
+
+.main-gif{
+
+max-height:56px;
+
+}
+
+.emoji-anim{
+
+font-size:2.2rem;
+
+}
+
+.book{
+
+height:68vh;
+
+}
+
+.photo{
+
+max-width:170px;
+
+max-height:220px;
+
+height:auto;
+
+object-fit:contain;
+
+}
+
+}
 </style>
 </head>
 <body>
@@ -265,10 +422,15 @@ body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width
 
   <!-- GIF principal — mix-blend-mode:screen quita el fondo verde -->
   <div class="gif-wrap">
-    <img id="mainGif"
-         src="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/cumple_nobg.gif"
-         alt="animación"
-         class="main-gif"/>
+<img
+id="mainGif"
+loading="eager"
+decoding="async"
+fetchpriority="high"
+draggable="false"
+src="https://anghhdz.github.io/cumple23mimd/cumple_nobg.gif"
+alt="animación"
+class="main-gif"/>
     <div class="emoji-anim hidden" id="emojiAnim">🌸</div>
   </div>
 
@@ -285,10 +447,14 @@ body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width
       <!-- BACK COVER — visible al llegar al final -->
       <div class="back-cover" id="backCover">
         <div class="back-cover-inner">
-          <img id="finalGif"
-               src="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/cumple_nobg.gif"
-               alt=""
-               class="final-gif"/>
+<img
+id="finalGif"
+loading="lazy"
+decoding="async"
+draggable="false"
+src="https://anghhdz.github.io/cumple23mimd/cumple_nobg.gif"
+alt=""
+class="final-gif"/>
           <div class="final-title">¡Gracias por todo! 💖</div>
           <p class="final-sub">Este regalo fue hecho con todo el amor<br>del mundo para ti 🌸✨</p>
           <button class="restart-btn" id="restartBtn">Volver al inicio 🔄</button>
@@ -303,8 +469,14 @@ body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width
           <div class="p-left">
             <div class="photo-frame">
               <!-- ✏️ FOTO 1 -->
-              <img src="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/Foto%201.jpg"
-                   alt="Foto 1" class="photo"
+<img
+loading="lazy"
+decoding="async"
+fetchpriority="high"
+draggable="false"
+src="https://anghhdz.github.io/cumple23mimd/Foto%201.jpg"
+alt="Foto 1"
+class="photo"
                    onerror="this.src='https://placehold.co/255x195/ffb6c1/fff?text=Foto+1'"/>
               <div class="photo-cap">Mi persona favorita ✨</div>
             </div>
@@ -330,8 +502,14 @@ body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width
           <div class="p-right">
             <div class="photo-frame">
               <!-- ✏️ FOTO 2 -->
-              <img src="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/Foto%202.jpg"
-                   alt="Foto 2" class="photo"
+<img
+loading="lazy"
+decoding="async"
+fetchpriority="high"
+draggable="false"
+src="https://anghhdz.github.io/cumple23mimd/Foto%202.jpg"
+alt="Foto 1"
+class="photo"
                    onerror="this.src='https://placehold.co/255x195/c8a2c8/fff?text=Foto+2'"/>
               <div class="photo-cap">Siempre en mi cabezota 💜</div>
             </div>
@@ -343,8 +521,14 @@ body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width
           <div class="p-left">
             <div class="photo-frame">
               <!-- ✏️ FOTO 3 -->
-              <img src="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/Foto%203.jpg"
-                   alt="Foto 3" class="photo"
+<img
+loading="lazy"
+decoding="async"
+fetchpriority="high"
+draggable="false"
+src="https://anghhdz.github.io/cumple23mimd/Foto%203.jpg"
+alt="Foto 1"
+class="photo"
                    onerror="this.src='https://placehold.co/255x195/87ceeb/fff?text=Foto+3'"/>
               <div class="photo-cap">Los mejores momentos son contigo 🌟</div>
             </div>
@@ -370,8 +554,14 @@ body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width
           <div class="p-right">
             <div class="photo-frame">
               <!-- ✏️ FOTO 4 -->
-              <img src="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/Foto%204.jpg"
-                   alt="Foto 4" class="photo"
+<img
+loading="lazy"
+decoding="async"
+fetchpriority="high"
+draggable="false"
+src="https://anghhdz.github.io/cumple23mimd/Foto%204.jpg"
+alt="Foto 1"
+class="photo"
                    onerror="this.src='https://placehold.co/255x195/98fb98/fff?text=Foto+4'"/>
               <div class="photo-cap">Con amor, siempre 💚</div>
             </div>
@@ -446,7 +636,7 @@ body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width
       <div class="s-sec">
         <h3>🎁 URL de GIF / Imagen</h3>
         <label>URL (vacío = emoji 🌸):</label>
-        <input type="text" id="gifUrlIn" class="s-input" value="https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/cumple_nobg.gif"/>
+        <input type="text" id="gifUrlIn" class="s-input" value="https://anghhdz.github.io/cumple23mimd/cumple_nobg.gif"/>
       </div>
       <div class="s-sec">
         <h3>💖 Corazones al tocar</h3>
@@ -464,21 +654,28 @@ body{font-family:'Quicksand',sans-serif;background:#1a0a1a;overflow:hidden;width
   </div>
 </div>
 
-<audio id="bgMusic" loop></audio>
+<audio
+id="bgMusic"
+loop
+preload="metadata"
+playsinline
+webkit-playsinline
+controlslist="nodownload noplaybackrate">
+</audio>
 
 <script>
 // ============================================================
 // ✏️  CONFIGURACIÓN PRINCIPAL — edita aquí
 // ============================================================
 const CFG = {
-  MUSIC_SRC : 'https://raw.githubusercontent.com/AngHHdz/guitarra/main/Valiente%20-%20koko.mp3',   // ← ruta a tu MP3, ej: 'musica.mp3'
+  MUSIC_SRC : 'https://anghhdz.github.io/cumple23mimd/Valiente%20-%20koko.mp3',   // ← ruta a tu MP3, ej: 'musica.mp3'
   cdTime    : 3,
   rainText  : 'Te quiero',
   rainC1    : '#ff69b4',
   rainC2    : '#ffb6c1',
   words     : ['Te amo','Eres especial','Siempre contigo','Mi amor','💖'],
   wordColor : '#ff69b4',
-  gifUrl    : 'https://raw.githubusercontent.com/AngHHdz/guitarra/refs/heads/main/cumple_nobg.gif',
+  gifUrl    : 'https://anghhdz.github.io/cumple23mimd/cumple_nobg.gif',
   heartClick: true,
 };
 // ============================================================
